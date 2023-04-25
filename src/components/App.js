@@ -1,33 +1,13 @@
-import hoverAvatar from "./images/Avatar.svg";
+import Header from './Header.js';
+import Main from './Main.js';
+import Footer from './Footer.js';
 
 function App() {
   return (
     <div className="App">
-  <header className="header">
-    <div className="header__logo" />
-  </header>
-  <main className="content">
-    <section className="profile">
-      <div className="profile__avatar-container">
-        <img
-          src={hoverAvatar}
-          alt="изменить аватар"
-          className="profile__avatar-hover"
-        />
-        <img alt="фотография профиля" className="profile__avatar" />
-      </div>
-      <div className="profile__info">
-        <h1 className="profile__name" />
-        <button type="button" className="profile__button-name-change" />
-        <p className="profile__occupation" />
-      </div>
-      <button type="button" className="profile__button-add-place" />
-    </section>
-    <section className="elements"></section>
-  </main>
-  <footer className="footer">
-    <p className="footer__copyright">© 2020 Mesto Russia</p>
-  </footer>
+      <Header />
+      <Main />
+      <Footer />
   <section className="popup popup_name-change">
     <div className="popup__container">
       <h2 className="popup__title">Редактировать профиль</h2>
