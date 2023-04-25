@@ -12,6 +12,6 @@
 * реализованы popups;
 * реализована валидация всех форм
 
-## Весь функционал реализован с помощью React.js
+#### Весь функционал реализован с помощью React.js
 
 * [Сайт на github-pages](https://vladimirsherstnev.github.io/Beautiful-Places-to-Visit-in-Russia/)
