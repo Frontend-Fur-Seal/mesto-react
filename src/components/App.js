@@ -3,15 +3,38 @@ import Main from './Main.js';
 import Footer from './Footer.js';
 import PopupWithImage from './PopupWithImage.js';
 import PopupWithForm from './PopupWithForm.js';
+import React from 'react';
 
 const App = () => {
+
+  const [ProfilePopupOpen, isEditProfilePopupOpen] = React.useState(false);
+  const ProfilePopupState = ProfilePopupOpen ? 'popup_opened' : '';
+
+  const [AddPlacePopupOpen, isEditAddPlacePopupOpen] = React.useState(false);
+  const AddPlacePopupState = AddPlacePopupOpen ? 'popup_opened' : '';
+
+  const [AvatarPopupOpen, isEditAvatarPopupOpen] = React.useState(false);
+  const AvatarPopupState = AvatarPopupOpen ? 'popup_opened' : '';
+
+  function handleEditProfileClick() {
+    isEditProfilePopupOpen(!ProfilePopupOpen); 
+  }
+
+  function handleAddPlaceClick(){
+    isEditAddPlacePopupOpen(!AddPlacePopupState); 
+  }
+
+  function handleEditAvatarClick() {
+    isEditAvatarPopupOpen(!AvatarPopupState); 
+  }
+
   return (
     <div className="App">
       <Header />
-      <Main />
+      <Main onEditAvatar = {handleEditAvatarClick} onAddPlace = {handleAddPlaceClick} onEditProfile = {handleEditProfileClick}/>
       <Footer />
 
-  <PopupWithForm name="name-change" title="Редактировать профиль">
+  <PopupWithForm name="name-change" title="Редактировать профиль" isOpen={ProfilePopupState}>
     <div className="popup__input-wrap">
       <input
         required=""
@@ -40,7 +63,7 @@ const App = () => {
       Сохранить
     </button>
   </PopupWithForm>
-  <PopupWithForm name="add-place" title="Новое место">
+  <PopupWithForm name="add-place" title="Новое место" isOpen={AddPlacePopupState}>
     <div className="popup__input-wrap">
       <input
         required=""
@@ -69,7 +92,7 @@ const App = () => {
       Создать
     </button>
   </PopupWithForm>
-  <PopupWithForm name="avatar-change" title="Обновить аватар">
+  <PopupWithForm name="avatar-change" title="Обновить аватар" isOpen={AvatarPopupState}>
     <div className="popup__input-wrap">
       <input
         required=""

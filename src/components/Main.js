@@ -1,28 +1,12 @@
 import hoverAvatar from "../images/Avatar.svg";
 
-function Main(){
-
-  function handleEditAvatarClick(){
-    const popupAvatarChange = document.querySelector('.popup_avatar-change');
-    popupAvatarChange.classList.add('popup_opened');
-  }
-
-  function handleEditProfileClick() {
-    const popupNameChange = document.querySelector('.popup_name-change');
-    popupNameChange.classList.add('popup_opened');
-  }
-
-  function handleAddPlaceClick(){
-    const popupAddPlace = document.querySelector('.popup_add-place');
-    popupAddPlace.classList.add('popup_opened');
-  }
-
+function Main(props){
     return (
       <main className="content">
         <section className="profile">
           <div 
           className="profile__avatar-container"
-          onClick={handleEditAvatarClick}>
+          onClick={props.onEditAvatar}>
             <img
               src={hoverAvatar}
               alt="изменить аватар"
@@ -35,14 +19,14 @@ function Main(){
           <button 
           type="button" 
           className="profile__button-name-change"
-          onClick={handleEditProfileClick} 
+          onClick={props.onEditProfile} 
           />
           <p className="profile__occupation" />
         </div>
         <button 
         type="button" 
         className="profile__button-add-place" 
-        onClick={handleAddPlaceClick} 
+        onClick={props.onAddPlace} 
         />
         </section>
         <section className="elements"></section>
