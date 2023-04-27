@@ -3,16 +3,13 @@ import Main from './Main.js';
 import Footer from './Footer.js';
 import PopupWithImage from './PopupWithImage.js';
 import PopupWithForm from './PopupWithForm.js';
-import React from 'react';
-import api from '../utils/Api.js';
-
-import userAvatar from '../images/avatar.jpg'
+import {useState, useEffect} from "react";
 
 const App = () => {
 
-  const [ProfilePopupOpen, isEditProfilePopupOpen] = React.useState(false);
-  const [AddPlacePopupOpen, isEditAddPlacePopupOpen] = React.useState(false);
-  const [AvatarPopupOpen, isEditAvatarPopupOpen] = React.useState(false);
+  const [ProfilePopupOpen, isEditProfilePopupOpen] = useState(false);
+  const [AddPlacePopupOpen, isEditAddPlacePopupOpen] = useState(false);
+  const [AvatarPopupOpen, isEditAvatarPopupOpen] = useState(false);
 
   function handleEditProfileClick() {
     isEditProfilePopupOpen(!ProfilePopupOpen); 
@@ -107,7 +104,6 @@ const App = () => {
     </button>
   </PopupWithForm>
   <PopupWithImage />
-  <template id="element-template" />
     </div>
   );
 }

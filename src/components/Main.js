@@ -1,14 +1,15 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import hoverAvatar from "../images/Avatar.svg";
 import api from '../utils/Api.js';
+import Card from "./Card.js";
 
 function Main(props){
 
-  const [userAvatar, setUserAvatar] = React.useState('');
-  const [userName, setUserName] = React.useState('');
-  const [userDescription, setUserDescription] = React.useState('');
+  const [userAvatar, setUserAvatar] = useState('');
+  const [userName, setUserName] = useState('');
+  const [userDescription, setUserDescription] = useState('');
 
-  React.useEffect(() => {
+  useEffect(() => {
     api.getInitialUser()
     .then((data) => {
       setUserAvatar(data.avatar);
@@ -52,7 +53,7 @@ function Main(props){
         onClick={props.onAddPlace} 
         />
         </section>
-        <section className="elements"></section>
+        <section className="elements"><Card /></section>
       </main>
     )
 }
