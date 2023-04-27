@@ -31,7 +31,7 @@ const App = () => {
       <Main onEditAvatar = {handleEditAvatarClick} onAddPlace = {handleAddPlaceClick} onEditProfile = {handleEditProfileClick} userDescription = {'Frontend Developer'} userAvatar = {userAvatar} userName = {'Elena Voralberg'}/>
       <Footer />
 
-  <PopupWithForm name="name-change" title="Редактировать профиль" isOpen={ProfilePopupOpen} onClose={handleEditProfileClick}>
+  <PopupWithForm title="Редактировать профиль" isOpen={ProfilePopupOpen} onClose={handleEditProfileClick}>
     <div className="popup__input-wrap">
       <input
         required=""
@@ -60,7 +60,7 @@ const App = () => {
       Сохранить
     </button>
   </PopupWithForm>
-  <PopupWithForm name="add-place" title="Новое место" isOpen={AddPlacePopupOpen} onClose={handleAddPlaceClick}>
+  <PopupWithForm title="Новое место" isOpen={AddPlacePopupOpen} onClose={handleAddPlaceClick}>
     <div className="popup__input-wrap">
       <input
         required=""
@@ -89,7 +89,7 @@ const App = () => {
       Создать
     </button>
   </PopupWithForm>
-  <PopupWithForm name="avatar-change" title="Обновить аватар" isOpen={AvatarPopupOpen} onClose={handleEditAvatarClick}>
+  <PopupWithForm title="Обновить аватар" isOpen={AvatarPopupOpen} onClose={handleEditAvatarClick}>
     <div className="popup__input-wrap">
       <input
         required=""
