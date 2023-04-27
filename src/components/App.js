@@ -5,6 +5,8 @@ import PopupWithImage from './PopupWithImage.js';
 import PopupWithForm from './PopupWithForm.js';
 import React from 'react';
 
+import userAvatar from '../'
+
 const App = () => {
 
   const [ProfilePopupOpen, isEditProfilePopupOpen] = React.useState(false);
@@ -31,7 +33,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <Main onEditAvatar = {handleEditAvatarClick} onAddPlace = {handleAddPlaceClick} onEditProfile = {handleEditProfileClick}/>
+      <Main onEditAvatar = {handleEditAvatarClick} onAddPlace = {handleAddPlaceClick} onEditProfile = {handleEditProfileClick} userDescription = {'Frontend Developer'} userAvatar = {userAvatar} userName = {'Elena Voralberg'}/>
       <Footer />
 
   <PopupWithForm name="name-change" title="Редактировать профиль" isOpen={ProfilePopupState} onClose={handleEditProfileClick}>

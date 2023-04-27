@@ -12,16 +12,23 @@ function Main(props){
               alt="изменить аватар"
               className="profile__avatar-hover"
             />
-            <img alt="фотография профиля" className="profile__avatar" />
+            <img 
+            alt="фотография профиля" 
+            className="profile__avatar"
+            src={props.userAvatar} />
           </div>
         <div className="profile__info">
-          <h1 className="profile__name" />
+          <h1 className="profile__name">
+            {props.userName}
+          </h1>
           <button 
           type="button" 
           className="profile__button-name-change"
           onClick={props.onEditProfile} 
           />
-          <p className="profile__occupation" />
+          <p className="profile__occupation">
+            {props.userDescription}
+          </p>
         </div>
         <button 
         type="button" 
