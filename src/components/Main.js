@@ -1,6 +1,22 @@
+import React from "react";
 import hoverAvatar from "../images/Avatar.svg";
+import api from '../utils/Api.js';
 
 function Main(props){
+
+  const [userAvatar, setUserAvatar] = React.useState('');
+  const [userName, setUserName] = React.useState('');
+  const [userDescription, setUserDescription] = React.useState('');
+
+  React.useEffect(() => {
+    api.getInitialUser()
+    .then((data) => {
+      setUserAvatar(data.avatar);
+      setUserName(data.name);
+      setUserDescription(data.about)
+    })
+  }, []);
+
     return (
       <main className="content">
         <section className="profile">
@@ -15,11 +31,11 @@ function Main(props){
             <img 
             alt="фотография профиля" 
             className="profile__avatar"
-            src={props.userAvatar} />
+            src={userAvatar} />
           </div>
         <div className="profile__info">
           <h1 className="profile__name">
-            {props.userName}
+            {userName}
           </h1>
           <button 
           type="button" 
@@ -27,7 +43,7 @@ function Main(props){
           onClick={props.onEditProfile} 
           />
           <p className="profile__occupation">
-            {props.userDescription}
+            {userDescription}
           </p>
         </div>
         <button 

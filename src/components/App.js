@@ -4,6 +4,7 @@ import Footer from './Footer.js';
 import PopupWithImage from './PopupWithImage.js';
 import PopupWithForm from './PopupWithForm.js';
 import React from 'react';
+import api from '../utils/Api.js';
 
 import userAvatar from '../images/avatar.jpg'
 
@@ -28,7 +29,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <Main onEditAvatar = {handleEditAvatarClick} onAddPlace = {handleAddPlaceClick} onEditProfile = {handleEditProfileClick} userDescription = {'Frontend Developer'} userAvatar = {userAvatar} userName = {'Elena Voralberg'}/>
+      <Main onEditAvatar = {handleEditAvatarClick} onAddPlace = {handleAddPlaceClick} onEditProfile = {handleEditProfileClick} />
       <Footer />
 
   <PopupWithForm title="Редактировать профиль" isOpen={ProfilePopupOpen} onClose={handleEditProfileClick}>
