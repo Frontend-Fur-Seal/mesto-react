@@ -10,6 +10,7 @@ const App = () => {
   const [ProfilePopupOpen, isEditProfilePopupOpen] = useState(false);
   const [AddPlacePopupOpen, isEditAddPlacePopupOpen] = useState(false);
   const [AvatarPopupOpen, isEditAvatarPopupOpen] = useState(false);
+  const [selectedCard, isEditselectedCard] = useState(false);
 
   function handleEditProfileClick() {
     isEditProfilePopupOpen(!ProfilePopupOpen); 
@@ -23,13 +24,19 @@ const App = () => {
     isEditAvatarPopupOpen(!AvatarPopupOpen); 
   }
 
+  function closeAllPopups(){
+    isEditProfilePopupOpen(false);
+    isEditAddPlacePopupOpen(false);
+    isEditAvatarPopupOpen(false);
+  }
+
   return (
     <div className="App">
       <Header />
       <Main onEditAvatar = {handleEditAvatarClick} onAddPlace = {handleAddPlaceClick} onEditProfile = {handleEditProfileClick} />
       <Footer />
 
-  <PopupWithForm title="Редактировать профиль" isOpen={ProfilePopupOpen} onClose={handleEditProfileClick}>
+  <PopupWithForm title="Редактировать профиль" isOpen={ProfilePopupOpen} onClose={closeAllPopups}>
     <div className="popup__input-wrap">
       <input
         required=""
@@ -58,7 +65,7 @@ const App = () => {
       Сохранить
     </button>
   </PopupWithForm>
-  <PopupWithForm title="Новое место" isOpen={AddPlacePopupOpen} onClose={handleAddPlaceClick}>
+  <PopupWithForm title="Новое место" isOpen={AddPlacePopupOpen} onClose={closeAllPopups}>
     <div className="popup__input-wrap">
       <input
         required=""
@@ -87,7 +94,7 @@ const App = () => {
       Создать
     </button>
   </PopupWithForm>
-  <PopupWithForm title="Обновить аватар" isOpen={AvatarPopupOpen} onClose={handleEditAvatarClick}>
+  <PopupWithForm title="Обновить аватар" isOpen={AvatarPopupOpen} onClose={closeAllPopups}>
     <div className="popup__input-wrap">
       <input
         required=""
