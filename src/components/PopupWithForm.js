@@ -6,7 +6,10 @@ function PopupWithForm(props){
               <form className="popup__form" name={props.name} noValidate="">
                 {props.children}
               </form>
-            <button className="popup__close" type="reset" />
+            <button 
+            className="popup__close" 
+            type="reset" 
+            onClick={props.onClose}/>
           </div>
         </section>
     )

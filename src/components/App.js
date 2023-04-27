@@ -21,11 +21,11 @@ const App = () => {
   }
 
   function handleAddPlaceClick(){
-    isEditAddPlacePopupOpen(!AddPlacePopupState); 
+    isEditAddPlacePopupOpen(!AddPlacePopupOpen); 
   }
 
   function handleEditAvatarClick() {
-    isEditAvatarPopupOpen(!AvatarPopupState); 
+    isEditAvatarPopupOpen(!AvatarPopupOpen); 
   }
 
   return (
@@ -34,7 +34,7 @@ const App = () => {
       <Main onEditAvatar = {handleEditAvatarClick} onAddPlace = {handleAddPlaceClick} onEditProfile = {handleEditProfileClick}/>
       <Footer />
 
-  <PopupWithForm name="name-change" title="Редактировать профиль" isOpen={ProfilePopupState}>
+  <PopupWithForm name="name-change" title="Редактировать профиль" isOpen={ProfilePopupState} onClose={handleEditProfileClick}>
     <div className="popup__input-wrap">
       <input
         required=""
@@ -63,7 +63,7 @@ const App = () => {
       Сохранить
     </button>
   </PopupWithForm>
-  <PopupWithForm name="add-place" title="Новое место" isOpen={AddPlacePopupState}>
+  <PopupWithForm name="add-place" title="Новое место" isOpen={AddPlacePopupState} onClose={handleAddPlaceClick}>
     <div className="popup__input-wrap">
       <input
         required=""
@@ -92,7 +92,7 @@ const App = () => {
       Создать
     </button>
   </PopupWithForm>
-  <PopupWithForm name="avatar-change" title="Обновить аватар" isOpen={AvatarPopupState}>
+  <PopupWithForm name="avatar-change" title="Обновить аватар" isOpen={AvatarPopupState} onClose={handleEditAvatarClick}>
     <div className="popup__input-wrap">
       <input
         required=""
