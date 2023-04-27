@@ -5,18 +5,13 @@ import PopupWithImage from './PopupWithImage.js';
 import PopupWithForm from './PopupWithForm.js';
 import React from 'react';
 
-import userAvatar from '../'
+import userAvatar from '../images/avatar.jpg'
 
 const App = () => {
 
   const [ProfilePopupOpen, isEditProfilePopupOpen] = React.useState(false);
-  const ProfilePopupState = ProfilePopupOpen ? 'popup_opened' : '';
-
   const [AddPlacePopupOpen, isEditAddPlacePopupOpen] = React.useState(false);
-  const AddPlacePopupState = AddPlacePopupOpen ? 'popup_opened' : '';
-
   const [AvatarPopupOpen, isEditAvatarPopupOpen] = React.useState(false);
-  const AvatarPopupState = AvatarPopupOpen ? 'popup_opened' : '';
 
   function handleEditProfileClick() {
     isEditProfilePopupOpen(!ProfilePopupOpen); 
@@ -36,7 +31,7 @@ const App = () => {
       <Main onEditAvatar = {handleEditAvatarClick} onAddPlace = {handleAddPlaceClick} onEditProfile = {handleEditProfileClick} userDescription = {'Frontend Developer'} userAvatar = {userAvatar} userName = {'Elena Voralberg'}/>
       <Footer />
 
-  <PopupWithForm name="name-change" title="Редактировать профиль" isOpen={ProfilePopupState} onClose={handleEditProfileClick}>
+  <PopupWithForm name="name-change" title="Редактировать профиль" isOpen={ProfilePopupOpen} onClose={handleEditProfileClick}>
     <div className="popup__input-wrap">
       <input
         required=""
@@ -65,7 +60,7 @@ const App = () => {
       Сохранить
     </button>
   </PopupWithForm>
-  <PopupWithForm name="add-place" title="Новое место" isOpen={AddPlacePopupState} onClose={handleAddPlaceClick}>
+  <PopupWithForm name="add-place" title="Новое место" isOpen={AddPlacePopupOpen} onClose={handleAddPlaceClick}>
     <div className="popup__input-wrap">
       <input
         required=""
@@ -94,7 +89,7 @@ const App = () => {
       Создать
     </button>
   </PopupWithForm>
-  <PopupWithForm name="avatar-change" title="Обновить аватар" isOpen={AvatarPopupState} onClose={handleEditAvatarClick}>
+  <PopupWithForm name="avatar-change" title="Обновить аватар" isOpen={AvatarPopupOpen} onClose={handleEditAvatarClick}>
     <div className="popup__input-wrap">
       <input
         required=""
