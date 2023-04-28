@@ -1,7 +1,7 @@
 function Card({ name, link, likesQuantity }){
     return (
         <article className="element">
-        <img className="element__photo" src={link} />
+        <img className="element__photo" src={link} alt={name} />
         <div className="element__info">
           <h2 className="element__name">{name}</h2>
           <div className="element__containerLike">
