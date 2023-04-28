@@ -10,7 +10,6 @@ const App = () => {
   const [ProfilePopupOpen, isEditProfilePopupOpen] = useState(false);
   const [AddPlacePopupOpen, isEditAddPlacePopupOpen] = useState(false);
   const [AvatarPopupOpen, isEditAvatarPopupOpen] = useState(false);
-  const [selectedCard, isEditselectedCard] = useState(false);
 
   function handleEditProfileClick() {
     isEditProfilePopupOpen(!ProfilePopupOpen); 

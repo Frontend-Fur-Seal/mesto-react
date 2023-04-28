@@ -8,6 +8,22 @@ function Main(props){
   const [userAvatar, setUserAvatar] = useState('');
   const [userName, setUserName] = useState('');
   const [userDescription, setUserDescription] = useState('');
+  const [cards, setNewCards] = useState([]);
+
+  useEffect(() => {
+  api.getInitialCards()
+  .then((data) => {
+      const results = data.map((element) => ({
+          id: element._id,
+          name: element.name,
+          link: element.link,
+          likesQuantity: element.likes.length
+      }))
+      console.log(results)
+      setNewCards(results);
+  })
+  .catch((err) => console.error(err))
+  }, [])
 
   useEffect(() => {
     api.getInitialUser()
@@ -53,7 +69,9 @@ function Main(props){
         onClick={props.onAddPlace} 
         />
         </section>
-        <section className="elements"><Card /></section>
+        <section className="elements">
+          {cards.map((card) => <Card key={card.id} {...card} />)}
+        </section>
       </main>
     )
 }
