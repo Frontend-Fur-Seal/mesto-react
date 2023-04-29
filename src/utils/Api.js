@@ -4,7 +4,7 @@ class Api {
     this._headers = config.headers;
   }
 
-  _statusError(res) {
+  _checkStatus(res) {
     return res.ok ? res.json() : Promise.reject(res.status);
   }
 
@@ -13,7 +13,7 @@ class Api {
       method: "GET",
       headers: this._headers,
     }).then((res) => {
-      return this._statusError(res);
+      return this._checkStatus(res);
     });
   }
 
@@ -22,7 +22,7 @@ class Api {
       method: "GET",
       headers: this._headers,
     }).then((res) => {
-      return this._statusError(res);
+      return this._checkStatus(res);
     });
   }
 
@@ -31,7 +31,7 @@ class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify(data),
-    }).then((res) => this._statusError(res));
+    }).then((res) => this._checkStatus(res));
   }
 
   postInitialUserAvatar(data) {
@@ -39,7 +39,7 @@ class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify(data),
-    }).then((res) => this._statusError(res));
+    }).then((res) => this._checkStatus(res));
   }
 
   postInitialCard(data) {
@@ -48,7 +48,7 @@ class Api {
       headers: this._headers,
       body: JSON.stringify(data),
     }).then((res) => {
-      return this._statusError(res);
+      return this._checkStatus(res);
     });
   }
 
@@ -56,21 +56,21 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-    }).then((res) => this._statusError(res));
+    }).then((res) => this._checkStatus(res));
   }
 
   putLike(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes `, {
       method: "PUT",
       headers: this._headers,
-    }).then((res) => this._statusError(res));
+    }).then((res) => this._checkStatus(res));
   }
 
   deleteLike(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes `, {
       method: "DELETE",
       headers: this._headers,
-    }).then((res) => this._statusError(res));
+    }).then((res) => this._checkStatus(res));
   }
 }
 
