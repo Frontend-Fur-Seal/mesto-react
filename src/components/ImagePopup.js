@@ -1,4 +1,4 @@
-function PopupWithImage(props){
+function ImagePopup(props){
     return (
       <section className={`popup popup_full-img ${props.card ? 'popup_opened' : ''}`}>
         <div className="popup__container popup__container_full-img">
@@ -17,4 +17,4 @@ function PopupWithImage(props){
     )
 }
 
-export default PopupWithImage;
+export default ImagePopup;

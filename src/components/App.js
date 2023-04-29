@@ -1,7 +1,7 @@
 import Header from './Header.js';
 import Main from './Main.js';
 import Footer from './Footer.js';
-import PopupWithImage from './PopupWithImage.js';
+import ImagePopup from './ImagePopup.js';
 import PopupWithForm from './PopupWithForm.js';
 import {useState, useEffect} from "react";
 
@@ -117,7 +117,7 @@ const App = () => {
       Сохранить
     </button>
   </PopupWithForm>
-  <PopupWithImage card = {SelectedCard} onClose={closeAllPopups} />
+  <ImagePopup card = {SelectedCard} onClose={closeAllPopups} />
     </div>
   );
 }
