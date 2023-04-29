@@ -19,7 +19,6 @@ function Main(props){
           link: element.link,
           likesQuantity: element.likes.length
       }))
-      console.log(results)
       setNewCards(results);
   })
   .catch((err) => console.error(err))
@@ -70,7 +69,7 @@ function Main(props){
         />
         </section>
         <section className="elements">
-          {cards.map((card) => <Card key={card.id} {...card} />)}
+          {cards.map((card) => <Card onCardClick = {props.onCardClick} key={card.id} card = {card} />)}
         </section>
       </main>
     )

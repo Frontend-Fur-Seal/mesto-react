@@ -1,6 +1,7 @@
 .element__photo{
-    width: 282px;
-    height: 282px;
+    min-width: 282px;
+    max-height: 282px;
+    min-height: 282px;
     margin-bottom: 22px;
     object-fit: cover;
 }
