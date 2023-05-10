@@ -20,6 +20,10 @@ function Card(props) {
     props.onCardLike(props.card);
   }
 
+  function handleDeleteClick(){
+    props.onCardDelete(props.card);
+  }
+
   return (
     <article className="element">
       <img
@@ -41,7 +45,10 @@ function Card(props) {
           </span>
         </div>
       </div>
-      {isOwn && <button type="reset" className="element__delete"></button>}
+      {isOwn && <button 
+      type="reset" 
+      className="element__delete"
+      onClick={handleDeleteClick}></button>}
     </article>
   );
 }

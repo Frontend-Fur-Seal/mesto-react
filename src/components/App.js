@@ -58,6 +58,14 @@ const App = () => {
 
 } 
 
+function handleCardDelete(card){
+  api.cardDelete(card._id)
+  .then((newCard) => {
+    setNewCards((state) => state.filter(c => c._id != newCard._id))
+  })
+  .catch((err) => console.error(err));
+}
+
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(!isEditProfilePopupOpen);
   }
@@ -89,8 +97,8 @@ const App = () => {
         onEditProfile={handleEditProfileClick}
         onCardClick={handleCardClick}
         onCardLike = {handleCardLike}
+        onCardDelete = {handleCardDelete}
         cards={cards}
-        card={handleCardClick}
       />
       <Footer />
 
