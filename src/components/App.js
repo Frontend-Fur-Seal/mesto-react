@@ -58,10 +58,19 @@ const App = () => {
 
 } 
 
+/*
+const beta = {
+  name: 'Moscow',
+  link: 'https://lp-cms-production.imgix.net/features/2019/04/Moscow-Red-Square-9a8e66e06b49.jpg'
+}
+
+api.postInitialCard(beta)
+*/
+
 function handleCardDelete(card){
   api.cardDelete(card._id)
-  .then((newCard) => {
-    setNewCards((state) => state.filter(c => c._id != newCard._id))
+  .then(() => {
+    setNewCards((state) => state.filter(c => c._id != card._id))
   })
   .catch((err) => console.error(err));
 }
