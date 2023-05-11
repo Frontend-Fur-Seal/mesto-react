@@ -2,7 +2,6 @@ import Header from "./Header.js";
 import Main from "./Main.js";
 import Footer from "./Footer.js";
 import ImagePopup from "./ImagePopup.js";
-import PopupWithForm from "./PopupWithForm.js";
 import { useState, useEffect } from "react";
 import api from "../utils/Api.js";
 import CurrentUserContext from "../contexts/CurrentUserContext.js";
@@ -134,7 +133,6 @@ function handleCardDelete(card){
       onClose={closeAllPopups} 
       onUpdateUser={handleUpdateUser}
       />
-
       <AddPlacePopup 
       isOpen={isEditAddPlacePopupOpen} 
       onClose={closeAllPopups} 
