@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import React from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.js";
 import hoverAvatar from "../images/Avatar.svg";
-import api from "../utils/Api.js";
 import Card from "./Card.js";
 
 function Main(props) {

@@ -6,6 +6,7 @@ import PopupWithForm from "./PopupWithForm.js";
 import { useState, useEffect } from "react";
 import api from "../utils/Api.js";
 import CurrentUserContext from "../contexts/CurrentUserContext.js";
+import EditProfilePopup from "./EditProfilePopup.js";
 
 const App = () => {
   
@@ -94,7 +95,14 @@ function handleCardDelete(card){
     setIsSelectedCard({name: '', link: ''});
   }
 
-
+  function handleUpdateUser({name, about}){
+    api.postInitialUser({name, about})
+    .then((res) => {
+      setCurrentUser(res);
+    })
+    .catch((err) => console.error(err));
+    closeAllPopups();
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -110,38 +118,11 @@ function handleCardDelete(card){
         cards={cards}
       />
       <Footer />
-
-      <PopupWithForm
-        title="Редактировать профиль"
-        isOpen={isEditProfilePopupOpen}
-        onClose={closeAllPopups}
-        buttonText={'Сохранить'}
-      >
-        <div className="popup__input-wrap">
-          <input
-            required=""
-            minLength={2}
-            maxLength={40}
-            type="text"
-            className="popup__input popup__content popup__content_type_name"
-            name="popup__content_type_name"
-            id="name-input"
-          />
-          <span className="popup__message-error name-input-error" />
-        </div>
-        <div className="popup__input-wrap">
-          <input
-            required=""
-            minLength={2}
-            maxLength={200}
-            type="text"
-            className="popup__input popup__content popup__content_type_occupation"
-            name="popup__content_type_occupation"
-            id="occupation-input"
-          />
-          <span className="popup__message-error occupation-input-error" />
-        </div>
-      </PopupWithForm>
+      <EditProfilePopup 
+      isOpen={isEditProfilePopupOpen} 
+      onClose={closeAllPopups} 
+      onUpdateUser={handleUpdateUser}
+      />
       <PopupWithForm
         title="Новое место"
         isOpen={isEditAddPlacePopupOpen}
