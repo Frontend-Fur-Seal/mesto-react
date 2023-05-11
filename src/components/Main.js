@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
 import React from "react";
 import CurrentUserContext from "../contexts/CurrentUserContext.js";
 import hoverAvatar from "../images/Avatar.svg";
 import Card from "./Card.js";
 
 function Main(props) {
-  
   const currentUser = React.useContext(CurrentUserContext);
 
   return (
@@ -40,12 +38,13 @@ function Main(props) {
       </section>
       <section className="elements">
         {props.cards.map((card) => (
-          <Card 
-          onCardClick={props.onCardClick} 
-          key={card._id} 
-          card={card} 
-          onCardLike={props.onCardLike}
-          onCardDelete={props.onCardDelete}/>
+          <Card
+            onCardClick={props.onCardClick}
+            key={card._id}
+            card={card}
+            onCardLike={props.onCardLike}
+            onCardDelete={props.onCardDelete}
+          />
         ))}
       </section>
     </main>

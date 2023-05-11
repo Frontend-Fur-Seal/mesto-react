@@ -1,7 +1,9 @@
 function ImagePopup(props) {
   return (
     <section
-      className={`popup popup_full-img ${props.card.link ? "popup_opened" : ""}`}
+      className={`popup popup_full-img ${
+        props.card.link ? "popup_opened" : ""
+      }`}
     >
       <div className="popup__container popup__container_full-img">
         <figure className="popup__figure">
