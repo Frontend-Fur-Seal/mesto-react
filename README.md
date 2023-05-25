@@ -14,4 +14,4 @@
 
 #### Весь функционал реализован с помощью React.js
 
-* [Сайт на github-pages](https://vladimirsherstnev.github.io/Beautiful-Places-to-Visit-in-Russia/)
+* [Сайт на github-pages](https://vladimirsherstnev.github.io/mesto-react/)
