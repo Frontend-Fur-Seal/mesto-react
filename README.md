@@ -14,4 +14,4 @@
 
 #### Весь функционал реализован с помощью React.js
 
-* [Сайт на github-pages](https://vladimirsherstnev.github.io/mesto-react/)
+* [Сайт на github-pages](https://Frontend-Fur-Seal.github.io/mesto-react/)
